@@ -59,6 +59,12 @@ type MeterSnapshot struct {
 	rate1, rate5, rate15, rateMean float64
 }
 
+func NewMeterSnapshot(count int64, rate1, rate5, rate15, rateMean float64) Meter {
+	return &MeterSnapshot{
+		count, rate1, rate5, rate15, rateMean,
+	}
+}
+
 // Count returns the count of events at the time the snapshot was taken.
 func (m *MeterSnapshot) Count() int64 { return m.count }
 
